@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Liste des artistes</title>
+</head>
+<body>
+    <h1>Liste des artistes</h1>
+    <ul>
+        {% for artist in artists %}
+            <li>
+                <a href="{% url 'catalogue:artist-show' artist.id %}">
+                    {{ artist.firstname }} {{ artist.lastname }}
+                </a>
+            </li>
+        {% empty %}
+            <li>Aucun artiste trouvé.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

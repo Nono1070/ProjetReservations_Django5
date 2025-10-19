@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Détail de l'artiste</title>
+</head>
+<body>
+    <h1>Détail de l'artiste</h1>
+    <p>Prénom : {{ artist.firstname }}</p>
+    <p>Nom : {{ artist.lastname }}</p>
+    
+    <p><a href="{% url 'catalogue:artist-index' %}">Retour à la liste</a></p>
+</body>
+</html>
