@@ -1,21 +1,34 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <title>Liste des artistes</title>
-</head>
-<body>
-    <h1>Liste des artistes</h1>
-    <ul>
-        {% for artist in artists %}
-            <li>
-                <a href="{% url 'catalogue:artist-show' artist.id %}">
-                    {{ artist.firstname }} {{ artist.lastname }}
-                </a>
-            </li>
-        {% empty %}
-            <li>Aucun artiste trouvé.</li>
-        {% endfor %}
-    </ul>
-</body>
-</html>
+{% extends 'layouts/base.html' %}
+
+{% block title %}Liste des artistes{% endblock %}
+
+{% block content %}
+<h1>🎭 Liste des artistes</h1>
+
+<!-- Bouton pour ajouter -->
+<p><a href="{% url 'catalogue:artist-create' %}">➕ Ajouter un artiste</a></p>
+
+<table border="1" cellpadding="8">
+  <tr>
+    <th>Prénom</th>
+    <th>Nom</th>
+    <th>Actions</th>
+  </tr>
+
+  {% for artist in artists %}
+  <tr>
+    <td>{{ artist.firstname }}</td>
+    <td>{{ artist.lastname }}</td>
+    <td>
+      <a href="{% url 'catalogue:artist-show' artist.id %}">👁️ Voir</a> |
+      <a href="{% url 'catalogue:artist-edit' artist.id %}">✏️ Modifier</a> |
+      <form method="post" action="{% url 'catalogue:artist-delete' artist.id %}" style="display:inline;">
+        {% csrf_token %}
+        <button type="submit" onclick="return confirm('Supprimer cet artiste ?')">🗑️ Supprimer</button>
+      </form>
+    </td>
+  </tr>
+  {% endfor %}
+</table>
+{% endblock %}
+

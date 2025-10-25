@@ -1,13 +1,15 @@
 # catalogue/urls.py
-
 from django.urls import path
-from .views import artist
+from . import views  # ✅ on importe views complet 
 
 app_name = 'catalogue'
 
 urlpatterns = [
-    path('artist/', artist.index, name='artist-index'),
-    path('artist/<int:artist_id>/', artist.show, name='artist-show'),
+    path('artist/', views.artist.index, name='artist-index'),
+    path('artist/<int:artist_id>/', views.artist.show, name='artist-show'),
+    path('artist/create', views.artist.create, name='artist-create'),
+    path('artist/edit/<int:artist_id>', views.artist.edit, name='artist-edit'),
+    path('artist/delete/<int:artist_id>', views.artist.delete, name='artist-delete'),
 ]
 
 
