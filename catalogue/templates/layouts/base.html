@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Vivre Liège - Application Django{% endblock %}</title>
+    <style>
+        body {
+            font-family: Georgia, "Times New Roman", serif;
+            background: #f9f7f4;
+            margin: 0;
+            padding: 0;
+            color: #3a2b26;
+        }
+        header {
+            background: #3a2b26;
+            color: white;
+            padding: 14px 20px;
+        }
+        nav a {
+            color: #d4af37;
+            text-decoration: none;
+            margin: 0 10px;
+            font-weight: bold;
+        }
+        nav a:hover {
+            color: white;
+        }
+        main {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 14px;
+            color: #6f5a4d;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h2>🎭 Vivre Liège — Espace Django</h2>
+    <nav>
+        <a href="{% url 'catalogue:artist-index' %}">Artistes</a>
+        <a href="{% url 'logout' %}">Se déconnecter</a>
+    </nav>
+</header>
+
+<main>
+    {% block content %}
+    <!-- Le contenu spécifique de chaque page sera injecté ici -->
+    {% endblock %}
+</main>
+
+<footer>
+    <p>© 2025 — Projet Django par Nono1070</p>
+</footer>
+
+</body>
+</html>

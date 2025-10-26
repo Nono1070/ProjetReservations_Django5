@@ -14,12 +14,22 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-
 from django.contrib import admin
-from django.urls import path, include  # include pour importer les urls de l'app
+from django.urls import path, include
+from django.shortcuts import redirect
 
 urlpatterns = [
-    path('catalogue/', include('catalogue.urls')),  # routes de l'app catalogue
+    # 🏠 Page d'accueil → redirige vers la liste des artistes
+    path('', lambda request: redirect('catalogue:artist-index')),
+
+    # 🎨 App Catalogue (tes artistes)
+    path('catalogue/', include('catalogue.urls')),
+
+    # 🔐 Authentification (login / logout)
+    path('accounts/', include('django.contrib.auth.urls')),
+
+    # ⚙️ Interface d'administration
     path('admin/', admin.site.urls),
 ]
+
 
