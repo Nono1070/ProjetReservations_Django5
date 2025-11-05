@@ -133,5 +133,6 @@ STATIC_URL = "static/"
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # === AUTHENTIFICATION ===
+LOGIN_URL = '/accounts/login/'
 LOGIN_REDIRECT_URL = '/catalogue/artist/'
 LOGOUT_REDIRECT_URL = '/accounts/login/'
