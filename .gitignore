@@ -1,5 +1,24 @@
-.env
-.virtualenvs/
-db.sqlite3
-__pycache__/
+# Environnements virtuels
+.venv/
+venv/
+env/
+
+# Fichiers Python compilés
 *.pyc
+__pycache__/
+
+# Fichiers de logs et bases locales
+*.log
+db.sqlite3
+
+# Configurations système / IDE
+.vscode/
+.idea/
+
+# Fichiers temporaires
+*.bak
+*.tmp
+.DS_Store
+
+# Cache Django
+/staticfiles/
