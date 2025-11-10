@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     
     #ajout de catalogue
     "catalogue",
+    "accounts",
 ]
 
 MIDDLEWARE = [
