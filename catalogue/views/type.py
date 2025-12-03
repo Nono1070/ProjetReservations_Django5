@@ -6,7 +6,7 @@ from catalogue.models import Type
 # Create your views here.
 def index(request):
     types = Type.objects.all()
-       title = 'Liste des types'
+    title = 'Liste des types'
     
     return render(request, 'type/index.html', {
         'types':types,
